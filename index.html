@@ -22,20 +22,17 @@
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
       <div>
-        <h3 class="float-md-start mb-0">Recipe Cost Calculator</h3>
+        <!-- <h3 class="float-md-start mb-0">Recipe Cost Calculator</h3> -->
       </div>
     </header>
 
-    <main class="px-3">
-      <h1>Cover your page.</h1>
-      <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the
-        text, and add your own fullscreen background photo to make it your own.</p>
-      <p class="lead">
-        <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
-      </p>
+    <main class="px-4">
+      <h1>Recipe Cost Calculator</h1>
+      <p class="lead">Simple Calculator to figure out fast and easy how much is the cost of your recipe </p>
+
 
       <div class="col-md-12 col-lg-12">
-        <h4 class="mb-3">Billing address</h4>
+        <!-- <h4 class="mb-3">Billing address</h4> -->
         <form class="needs-validation" novalidate>
 
           <!-- First Row -->
@@ -53,7 +50,7 @@
                 Please select a valid country.
               </div>
             </div> -->
-
+            <!-- 
             <div class="col-sm-3">
               <label for="firstName" class="form-label">Custom Ingredient</label>
               <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
@@ -85,72 +82,81 @@
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
-            </div>
+            </div> -->
 
 
 
-           
-              <table class="table-dark">
 
-                <thead>
-                  <tr>
-                    <th>Ingredient</th>
-                    <th>Price per Kilos</th>
-                    <th>Gramms per Portion</th>
-                    <th>Price per Gramms</th>
-                  </tr>
-                </thead>
+            <table class="table-dark" id="table">
 
-                <tbody>
+              <thead>
+                <tr>
+                  <th>Ingredient</th>
+                  <th>Price per Kilos</th>
+                  <th>Gramms per Portion</th>
+                  <th>Price per Portion</th>
+                </tr>
+              </thead>
 
-                  <tr>
-                    <th><input type="text" class="form-control" id="1" placeholder="" value="" required></th>
-                    <td><input type="number" class="form-control" id="2" placeholder="" value="" required></td>
-                    <td><input type="number" class="form-control" id="3" placeholder="" value="" required></td>
-                    <td><input type="number" class="form-control" id="4" placeholder="" value="" required></td>
-                  </tr>
-                  <tr>
-                    <th><input type="text" class="form-control" id="5" placeholder="" value="" required></th>
-                    <td><input type="number" class="form-control" id="6" placeholder="" value="" required></td>
-                    <td><input type="number" class="form-control" id="7" placeholder="" value="" required></td>
-                    <td><input type="number" class="form-control" id="8" placeholder="" value="" required></td>
-                  </tr>
+              <tbody>
 
-                </tbody>
+                <tr>
+                  <th><input type="text" class="form-control" id="1" placeholder="" value="" required></th>
+                  <td><input type="number" class="form-control" id="2" placeholder="" value="" required></td>
+                  <td><input type="number" class="form-control" id="3" placeholder="" value="" required></td>
+                  <td><input type="number" class="form-control" id="4" placeholder="" value="" required></td>
+                  <td><button onClick="onClickRemove(this)">Remove</button></td>
+                </tr>
+                <tr>
+                  <th><input type="text" class="form-control" id="5" placeholder="" value="" required></th>
+                  <td><input type="number" class="form-control" id="6" placeholder="" value="" required></td>
+                  <td><input type="number" class="form-control" id="7" placeholder="" value="" required></td>
+                  <td><input type="number" class="form-control" id="8" placeholder="" value="" required></td>
+                  <td><button onClick="onClickRemove(this)">Remove</button></td>
+                </tr>
+                <tr>
+                  <th><input type="text" class="form-control" id="9" placeholder="" value="" required></th>
+                  <td><input type="number" class="form-control" id="10" placeholder="" value="" required></td>
+                  <td><input type="number" class="form-control" id="11" placeholder="" value="" required></td>
+                  <td><input type="number" class="form-control" id="12" placeholder="" value="" required></td>
+                  <td><button onClick="onClickRemove(this)">Remove</button></td>
+                </tr>
+                <tr>
+                  <th><input type="text" class="form-control" id="13" placeholder="" value="" required></th>
+                  <td><input type="number" class="form-control" id="14" placeholder="" value="" required></td>
+                  <td><input type="number" class="form-control" id="15" placeholder="" value="" required></td>
+                  <td><input type="number" class="form-control" id="16" placeholder="" value="" required></td>
+                  <td><button onClick="onClickRemove(this)">Remove</button></td>
+                </tr>
 
-              </table>
+              </tbody>
 
-              <hr class="my-4">
+            </table>
+
+
+            <hr class="my-4">
 
 
 
-              <button class=" btn btn-primary btn-lg" type="submit">Sum</button>
+            <button class=" btn btn-primary btn-lg" id="button" type="submit" onclick="simpleCalc1(), simpleCalc2(), result()">Sum</button>
+            <p id="result"></p>
 
         </form>
       </div>
-
     </main>
 
-    <footer class="mt-auto text-white-50">
+    <!-- <footer class="mt-auto text-white-50">
       <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a
           href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
-    </footer>
+    </footer> -->
   </div>
 
 
-  <!-- # Recipes Cost Calculator
-print("Recipes Cost Calculator")
 
 
-meat_kilo = float(input( "How much euros is the price of 1 kilo of meat ? : "))
+  <!-- Custom Javascript -->
+  <script src="script.js"></script>
 
-
-
-print ((100/1000) * meat_kilo) -->
-
-  <!-- Since you ask for a formula, suppose the price were 1 kg for r rupees= r rupees per kg= r rupees/kg. What is the price
-  for x grams? There are 1000 grams per kg so x grams is x/1000 kg and the price will be (x/1000)kg * r rupees/kg=
-  xr/1000 rupees. -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
