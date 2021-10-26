@@ -26,17 +26,6 @@ function result() {
 
 
 
-//print ((100/1000) * meat_kilo) -->
-
-
-
-
-
-
-
-
-
-
 // updateSubTotal(); // Initial call
 
 // // SubTotal
@@ -54,6 +43,13 @@ function onClickRemove(deleteButton) {
     let row = deleteButton.parentElement.parentElement;
     row.parentNode.removeChild(row);
     simpleCalc(); // Call after delete
+}
+
+// //Add Row
+function onClickAdd(addButton) {
+    let row = addButton.parentElement.parentElement;
+    row.parentNode.appendChild(row);
+    // simpleCalc(); // Call after delete
 }
 
 
