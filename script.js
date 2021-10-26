@@ -1,5 +1,8 @@
+
+
+var kilo = 1000
+
 function simpleCalc1() {
-    var kilo = 1000
     var pricePerKilos2 = parseFloat(document.getElementById('2').value);
     var gramPerPortion3 = parseFloat(document.getElementById('3').value);
     var pricePerPortion4 = document.getElementById('4');
@@ -7,7 +10,6 @@ function simpleCalc1() {
 }
 
 function simpleCalc2() {
-    var kilo = 1000
     var pricePerKilos6 = parseFloat(document.getElementById('6').value);
     var gramPerPortion7 = parseFloat(document.getElementById('7').value);
     var pricePerPortion8 = document.getElementById('8');
