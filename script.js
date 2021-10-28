@@ -21,21 +21,46 @@ function result() {
     var sum2 = parseFloat(document.getElementById('8').value);
     var x = document.getElementById('result');
     parseFloat(x.innerHTML = sum1 + sum2);
-    
+
 }
 
-var table = document.getElementById("mytab1");
-for (var i = 0, row; row = table.rows[i]; i++) {
-   //iterate through rows
-   //rows would be accessed using the "row" variable assigned in the for loop
+function test() {
+    var table = document.getElementById("mytab1");
+    var value = 0;
+        
+    var value2 = 0;
+    var value1 = 0;
 
-   console.log(table.rows[i])
-   for (var j = 0, col; col = row.cells[j]; j++) {
-     //iterate through columns
-     //columns would be accessed using the "col" variable assigned in the for loop
-     
-   }  
+
+    for (var i = 0, row; row = table.rows[i]; i++) {
+        //iterate through rows
+        //rows would be accessed using the "row" variable assigned in the for loop
+        //    console.log(table.rows[i])
+
+
+       
+        for (var j = 1, col; col = row.cells[j]; j++) {
+            //iterate through columns
+            //columns would be accessed using the "col" variable assigned in the for loop
+
+
+            value = parseFloat(row.cells[j].firstChild.value);
+            value1 += value;
+            // console.log(value1);
+            
+
+        }
+        
+
+
+    }
+    console.log(value1);
 }
+
+
+
+// var lv_input = document.getElementById("table01").rows[0].cells[2].firstChild.value;
+// console.log(lv_input);
 
 // updateSubTotal(); // Initial call
 
