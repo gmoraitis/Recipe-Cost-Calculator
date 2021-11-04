@@ -38,15 +38,15 @@ function notused() {
         // var x = document.getElementById('result').value;
 
         for (var j = 1, col; col = row.cells[j]; j++) {
-            var value1 = 0;
+            var array = 0;
 
             //iterate through columns
             //columns would be accessed using the "col" variable assigned in the for loop
-            value1 = parseFloat(row.cells[j].firstChild.value);
-            // parseFloat(x.innerHTML = value1);
-            // parseFloat(document.getElementById('result').value = value1);
+            array = parseFloat(row.cells[j].firstChild.value);
+            // parseFloat(x.innerHTML = array);
+            // parseFloat(document.getElementById('result').value = array);
 
-            console.log(value1)
+            console.log(array)
 
             for (v = 2, col; col = row.cells[v]; v++) {
                 var sumvalue = 0;
@@ -56,7 +56,7 @@ function notused() {
 
                 console.log(value2);
 
-                sumvalue = value1 + value2;
+                sumvalue = array + value2;
 
                 console.log(sumvalue)
 
@@ -73,64 +73,135 @@ function notused() {
 
 
 // Third idea to pass the values in an array - in used but not working.
-function test() {
+function testt() {
     var table = document.getElementById("mytab1");
-    var value1 = [];
-    var sum = 0;
+    var array = [];
+    var rowSum = 0;
+    var dieresh = 0;
+    var pol = 0
+    var outFirst = 0;
+    var outSecond;
+    var outCell;
+
+
     for (var i = 0, row; row = table.rows[i]; i++) {
+        console.log("Outside loop iteration :", i);
+        console.log("Array initial", array);
 
         for (var j = 1, col; col = row.cells[j]; j++) {
-
-
-            value1.push(parseFloat(row.cells[j].firstChild.value))
-
+            console.log("Inside Loop iteration :", j);
 
             // check if array value is false or NaN
-            if (value1[j] === false || value1[j] != value1[j]) {
-                console.log("NaN found at place " + j);
-                // change NaN values to 0, not working...
-                value1[j] = 0;
+            // if (array[j] === false || array[j] != array[j]) {
+            //     console.log("NaN found at place " + j);
+            //     // change NaN values to 0, not working...
+            //     array[j] = 0;
+            //     console.log(array[j]);
+            // } else {
+            console.log("My array before push is :", array);
+            array.push(parseFloat(row.cells[j].firstChild.value))
 
-                console.log(value1)  
+            console.log("My array after push is :", array);
+            outFirst = array[i];
+            console.log("Important", outFirst);
 
-            }
-            sum += value1[j]
+            // parseFloat(dieresh = outFirst / kilo);
+            // console.log(dieresh)
+            // outSecond = array[i];
+            // pol = dieresh * outSecond;
+            // rowSum = pol;
+            // rowSum = dieresh * array[0];
+            //  
 
-            // console.log(sum)
-            // console.log(value1)
-
+            // }
+            // sum = array[i] / 1000 * array[j]
+            // console.log(rowSum);
+            console.log(parseFloat(document.getElementById("result").value = outFirst));
         }
-        parseFloat(document.getElementById('result').value = sum)
+
+
+
+
+
+
+
+
+
+
+
+
+        // Script idea to add or remove rows
+
+        // updateSubTotal(); // Initial call
+
+        // // SubTotal
+        // function updateSubTotal() {
+        //     var table = document.getElementById("myTable");
+        //     let subTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
+        //         return total + parseFloat(row.cells[1].innerHTML);
+        //     }, 0);
+        //     document.getElementById("val").innerHTML = "SubTotal = $" + subTotal.toFixed(2);
+        // }
+
+
+        //--> Remove Row
+        // function onClickRemove(deleteButton) {
+        //     let row = deleteButton.parentElement.parentElement;
+        //     row.parentNode.removeChild(row);
+        //     simpleCalc(); // Call after delete
+        // }
+
+        //--> Add Row
+        // function onClickAdd(addButton) {
+        //     let row = addButton.parentElement.parentElement;
+        //     row.parentNode.appendChild(row);
+        //     // simpleCalc(); // Call after delete
+        // }
 
     }
 
 
-// Script idea to add or remove rows
+}
 
-    // updateSubTotal(); // Initial call
+function test() {
+    var table = document.getElementById("mytab1");
+    var array = [];
+    var correctVal = 0;
+    var wrong = isNaN();
+    for (var i = 0, row; row = table.rows[i]; i++) {
+        var sum1 = 0;
 
-    // // SubTotal
-    // function updateSubTotal() {
-    //     var table = document.getElementById("myTable");
-    //     let subTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
-    //         return total + parseFloat(row.cells[1].innerHTML);
-    //     }, 0);
-    //     document.getElementById("val").innerHTML = "SubTotal = $" + subTotal.toFixed(2);
-    // }
+        for (var j = 0, col; col = row.cells[j]; j++) {
+            console.log(array)
+            correctVal = row.cells[j].firstChild.value;
+            console.log("correctval first",correctVal)
+            if (correctVal != wrong){
+                correctVal = 0;
+                console.log("correctval",correctVal)
+            } else{
+                console.log(j)
+                array.push(parseFloat(row.cells[j].firstChild.value));
+                console.log("eimai sto else",array);
+                j++
+            }
+           
+            // if (array[j] == wrong) {
+            //     console.log("mphka sto if")
+            //     array[j] = 0
+            //     console.log(array)
+            // } else {
+            //     sum1 += array[j];
+            //     console.log(array);
+            // }
+            
+            // sum1 += (col.textContent != '',isNaN) ? parseInt(col.textContent) : 0;
+            // sum1 += col.textContent;
+        }
 
+        // var a = 'a' + (i + 1).toString();
+        var a = 'a' + (i + 1).toString();
+        document.getElementById(a).value = sum1;
 
-  //--> Remove Row
-    // function onClickRemove(deleteButton) {
-    //     let row = deleteButton.parentElement.parentElement;
-    //     row.parentNode.removeChild(row);
-    //     simpleCalc(); // Call after delete
-    // }
-
-  //--> Add Row
-    // function onClickAdd(addButton) {
-    //     let row = addButton.parentElement.parentElement;
-    //     row.parentNode.appendChild(row);
-    //     // simpleCalc(); // Call after delete
-    // }
-
+        sum1 = 0;
+    }
 }
