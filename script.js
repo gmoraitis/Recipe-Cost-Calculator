@@ -34,12 +34,28 @@ function calc4() {
     parseFloat(pricePerPortion16.value = gramPerPortion15 / kilo * pricePerKilos14);
 }
 
+function calc5() {
+    
+    var pricePerKilos18 = parseFloat(document.getElementById('18').value);
+    var gramPerPortion19 = parseFloat(document.getElementById('19').value);
+    var pricePerPortion20 = document.getElementById('20');
+    parseFloat(pricePerPortion20.value = gramPerPortion19 / kilo * pricePerKilos18);
+}
+
+function calc6() {
+    
+    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
+    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
+    var pricePerPortion24 = document.getElementById('24');
+    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+}
+
+
 function result() {
  
     var sum1 = parseFloat(document.getElementById('4').value);
     console.log(sum1)
     sum1 = sum1 || 0
-    
     
     var sum2 = parseFloat(document.getElementById('8').value);
     console.log(sum2)
@@ -53,8 +69,16 @@ function result() {
     console.log(sum4)
     sum4 = sum4 || 0
 
+    var sum5 = parseFloat(document.getElementById('20').value);
+    console.log(sum5)
+    sum5 = sum5 || 0
+
+    var sum6 = parseFloat(document.getElementById('24').value);
+    console.log(sum6)
+    sum6 = sum6 || 0
+
     var x = document.getElementById('result');
-    x.innerText = sum1 + sum2 + sum3 + sum4;
+    x.innerText = sum1 + sum2 + sum3 + sum4 + sum5 + sum6;
 }
 
 
