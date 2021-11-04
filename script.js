@@ -78,7 +78,7 @@ function result() {
     sum6 = sum6 || 0
 
     var x = sum1 + sum2 + sum3 + sum4 + sum5 + sum6;
-    var fixed = x.toFixed();
+    var fixed = x.toFixed(2);
     var y = document.getElementById('result');
     y.innerText = fixed;
 }
