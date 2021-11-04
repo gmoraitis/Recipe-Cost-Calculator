@@ -1,5 +1,5 @@
 
-// First Idea with HardCoding, deactivated and and working but i am trying to refactor it in another branch
+// First Idea with HardCoding, is working but i am trying to refactor it in another branch
 const kilo = 1000
 
 function calc1() {
@@ -77,8 +77,17 @@ function result() {
     console.log(sum6)
     sum6 = sum6 || 0
 
-    var x = document.getElementById('result');
-    x.innerText = sum1 + sum2 + sum3 + sum4 + sum5 + sum6;
+    var x = sum1 + sum2 + sum3 + sum4 + sum5 + sum6;
+    var fixed = x.toFixed();
+    var y = document.getElementById('result');
+    y.innerText = fixed;
 }
+
+
+function clearValues() {
+    // document.getElementsByClassName("form-control").reset();
+    document.querySelector("form").value = '';
+    document.getElementById('result').innerHTML = 'Result..';
+  }
 
 
