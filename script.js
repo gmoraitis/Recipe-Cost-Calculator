@@ -166,41 +166,29 @@ function testt() {
 function test() {
     var table = document.getElementById("mytab1");
     var array = [];
-    var correctVal = 0;
-    var wrong = isNaN();
+    var correctVal;
+    var rowSum = 0;
     for (var i = 0, row; row = table.rows[i]; i++) {
         var sum1 = 0;
-
+        console.log('Outside Loop : ', i)
         for (var j = 0, col; col = row.cells[j]; j++) {
             console.log(array)
             correctVal = row.cells[j].firstChild.value;
-            console.log("correctval first",correctVal)
-            if (correctVal != wrong){
-                correctVal = 0;
-                console.log("correctval",correctVal)
-            } else{
-                console.log(j)
-                array.push(parseFloat(row.cells[j].firstChild.value));
-                console.log("eimai sto else",array);
-                j++
-            }
-           
-            // if (array[j] == wrong) {
-            //     console.log("mphka sto if")
-            //     array[j] = 0
-            //     console.log(array)
-            // } else {
-            //     sum1 += array[j];
-            //     console.log(array);
-            // }
-            
-            // sum1 += (col.textContent != '',isNaN) ? parseInt(col.textContent) : 0;
-            // sum1 += col.textContent;
-        }
+            correctVal = correctVal || 0;
+            console.log("correctval first", correctVal)
 
+            console.log(j)
+            array.push(parseFloat(correctVal));
+            console.log("old else", array);
+            rowSum += array[j];
+            rowSum = rowSum || 0;
+            console.log("Row Sum",rowSum);
+        }
+        //add the two cells in each row and print the sum in each 4th cell
+
+        sum1 = rowSum;
         // var a = 'a' + (i + 1).toString();
-        var a = 'a' + (i + 1).toString();
-        document.getElementById(a).value = sum1;
+        document.getElementById("a1").innerHTML = sum1 ;
 
         sum1 = 0;
     }
