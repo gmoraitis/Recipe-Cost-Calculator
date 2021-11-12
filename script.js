@@ -168,6 +168,7 @@ function test() {
     var array = [];
     var correctVal;
     var rowSum = 0;
+    var finalSum = 0;
     for (var i = 0, row; row = table.rows[i]; i++) {
         var sum1 = 0;
         console.log('Outside Loop : ', i)
@@ -187,9 +188,13 @@ function test() {
         //add the two cells in each row and print the sum in each 4th cell
         array = [];
         sum1 = rowSum;
-        // var a = 'a' + (i + 1).toString();
+        rowSum = 0;
+        console.log("sum for cell",sum1)
+        var a = 'a' + (i + 1).toString();
         document.getElementById("a1").innerHTML = sum1;
 
-        sum1 = 0;
+        finalSum +=sum1;
+        console.log("Final Sum", finalSum);
     }
+    document.getElementById("result").innerHTML = finalSum;
 }
