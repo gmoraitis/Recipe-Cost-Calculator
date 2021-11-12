@@ -182,13 +182,13 @@ function test() {
             console.log("old else", array);
             rowSum += array[j];
             rowSum = rowSum || 0;
-            console.log("Row Sum",rowSum);
+            console.log("Row Sum", rowSum);
         }
         //add the two cells in each row and print the sum in each 4th cell
-
+        array = [];
         sum1 = rowSum;
         // var a = 'a' + (i + 1).toString();
-        document.getElementById("a1").innerHTML = sum1 ;
+        document.getElementById("a1").innerHTML = sum1;
 
         sum1 = 0;
     }
