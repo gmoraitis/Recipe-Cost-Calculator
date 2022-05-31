@@ -85,7 +85,6 @@ function result() {
 
 
 function clearValues() {
-    // document.getElementsByClassName("form-control").reset();
     document.querySelector("form").value = '';
     document.getElementById('result').innerHTML = '';
   }
