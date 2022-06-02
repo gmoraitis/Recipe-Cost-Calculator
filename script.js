@@ -9,20 +9,21 @@ function simpleCalc1() {
     parseFloat(pricePerPortion4.value = gramPerPortion3 / kilo * pricePerKilos2);
 }
 
-function simpleCalc2() {
-    var pricePerKilos6 = parseFloat(document.getElementById('6').value);
-    var gramPerPortion7 = parseFloat(document.getElementById('7').value);
-    var pricePerPortion8 = document.getElementById('8');
-    parseFloat(pricePerPortion8.value = gramPerPortion7 / kilo * pricePerKilos6);
-}
 
-function result() {
-    var sum1 = parseFloat(document.getElementById('4').value);
-    var sum2 = parseFloat(document.getElementById('8').value);
-    var x = document.getElementById('result');
-    parseFloat(x.innerHTML = sum1 + sum2);
+// function simpleCalc2() {
+//     var pricePerKilos6 = parseFloat(document.getElementById('6').value);
+//     var gramPerPortion7 = parseFloat(document.getElementById('7').value);
+//     var pricePerPortion8 = document.getElementById('8');
+//     parseFloat(pricePerPortion8.value = gramPerPortion7 / kilo * pricePerKilos6);
+// }
 
-}
+// function result() {
+//     var sum1 = parseFloat(document.getElementById('4').value);
+//     var sum2 = parseFloat(document.getElementById('8').value);
+//     var x = document.getElementById('result');
+//     parseFloat(x.innerHTML = sum1 + sum2);
+
+// }
 
 // Second idea with for loops, deaactivated and not working
 function notused() {
@@ -163,15 +164,18 @@ function testt() {
 
 }
 
-function test() {
+function calc() {
     var table = document.getElementById("mytab1");
     var array = [];
     var correctVal;
     var rowSum = 0;
     var finalSum = 0;
+    // Loop through rows
+    // The problem is that the loop is not working after the first row.
     for (var i = 0, row; row = table.rows[i]; i++) {
         var sum1 = 0;
         console.log('Outside Loop : ', i)
+        // Loop through columns
         for (var j = 0, col; col = row.cells[j]; j++) {
             console.log(array)
             correctVal = row.cells[j].firstChild.value;
@@ -190,14 +194,14 @@ function test() {
         sum1 = rowSum;
         rowSum = 0;
         console.log("sum for cell", sum1)
-        var a = 'a' + (i + 1).toString();
-        if (i = row ) {
-            
+        var a = 'a' + (i+1).toString();
+        console.log('this is ',row)
+        if (i = row) {
             var cellSum = document.getElementById(a);
             parseFloat(cellSum.value = sum1);
-            sum1 = sum1 || 0;
+            sum1 = sum1 || 0;}
 
-        }
+        
         finalSum += sum1;
         console.log("Final Sum", finalSum);
     }
