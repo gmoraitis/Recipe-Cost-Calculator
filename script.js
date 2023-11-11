@@ -52,82 +52,82 @@ function calc6() {
 
 function calc7() {
     
-    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
-    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
-    var pricePerPortion24 = document.getElementById('24');
-    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+    var pricePerKilos25 = parseFloat(document.getElementById('25').value);
+    var gramPerPortion26 = parseFloat(document.getElementById('26').value);
+    var pricePerPortion27 = document.getElementById('27');
+    parseFloat(pricePerPortion27.value = gramPerPortion26 / kilo * pricePerKilos25);
 }
 
 function calc8() {
     
-    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
-    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
-    var pricePerPortion24 = document.getElementById('24');
-    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+    var pricePerKilos28 = parseFloat(document.getElementById('28').value);
+    var gramPerPortion29 = parseFloat(document.getElementById('29').value);
+    var pricePerPortion30 = document.getElementById('30');
+    parseFloat(pricePerPortion30.value = gramPerPortion29 / kilo * pricePerKilos28);
 }
 
 function calc9() {
     
-    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
-    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
-    var pricePerPortion24 = document.getElementById('24');
-    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+    var pricePerKilos31 = parseFloat(document.getElementById('31').value);
+    var gramPerPortion32 = parseFloat(document.getElementById('32').value);
+    var pricePerPortion33 = document.getElementById('33');
+    parseFloat(pricePerPortion33.value = gramPerPortion32 / kilo * pricePerKilos31);
 }
 
 function calc10() {
     
-    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
-    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
-    var pricePerPortion24 = document.getElementById('24');
-    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+    var pricePerKilos34 = parseFloat(document.getElementById('34').value);
+    var gramPerPortion35 = parseFloat(document.getElementById('35').value);
+    var pricePerPortion36 = document.getElementById('36');
+    parseFloat(pricePerPortion36.value = gramPerPortion35 / kilo * pricePerKilos34);
 }
 
 function calc11() {
     
-    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
-    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
-    var pricePerPortion24 = document.getElementById('24');
-    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+    var pricePerKilos37 = parseFloat(document.getElementById('37').value);
+    var gramPerPortion38 = parseFloat(document.getElementById('38').value);
+    var pricePerPortion39 = document.getElementById('39');
+    parseFloat(pricePerPortion39.value = gramPerPortion38 / kilo * pricePerKilos37);
 }
 
 function calc12() {
     
-    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
-    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
-    var pricePerPortion24 = document.getElementById('24');
-    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+    var pricePerKilos40 = parseFloat(document.getElementById('40').value);
+    var gramPerPortion41 = parseFloat(document.getElementById('41').value);
+    var pricePerPortion42 = document.getElementById('42');
+    parseFloat(pricePerPortion42.value = gramPerPortion41 / kilo * pricePerKilos40);
 }
 
 function calc13() {
     
-    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
-    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
-    var pricePerPortion24 = document.getElementById('24');
-    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+    var pricePerKilos43 = parseFloat(document.getElementById('43').value);
+    var gramPerPortion44 = parseFloat(document.getElementById('44').value);
+    var pricePerPortion45 = document.getElementById('45');
+    parseFloat(pricePerPortion45.value = gramPerPortion44 / kilo * pricePerKilos43);
 }
 
 function calc14() {
     
-    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
-    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
-    var pricePerPortion24 = document.getElementById('24');
-    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+    var pricePerKilos46 = parseFloat(document.getElementById('46').value);
+    var gramPerPortion47 = parseFloat(document.getElementById('47').value);
+    var pricePerPortion48 = document.getElementById('48');
+    parseFloat(pricePerPortion48.value = gramPerPortion47 / kilo * pricePerKilos46);
 }
 
 function calc15() {
     
-    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
-    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
-    var pricePerPortion24 = document.getElementById('24');
-    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+    var pricePerKilos49 = parseFloat(document.getElementById('49').value);
+    var gramPerPortion50 = parseFloat(document.getElementById('50').value);
+    var pricePerPortion51 = document.getElementById('51');
+    parseFloat(pricePerPortion51.value = gramPerPortion50 / kilo * pricePerKilos49);
 }
 
 function calc16() {
     
-    var pricePerKilos22 = parseFloat(document.getElementById('22').value);
-    var gramPerPortion23 = parseFloat(document.getElementById('23').value);
-    var pricePerPortion24 = document.getElementById('24');
-    parseFloat(pricePerPortion24.value = gramPerPortion23 / kilo * pricePerKilos22);
+    var pricePerKilos52 = parseFloat(document.getElementById('52').value);
+    var gramPerPortion53 = parseFloat(document.getElementById('53').value);
+    var pricePerPortion54 = document.getElementById('54');
+    parseFloat(pricePerPortion54.value = gramPerPortion53 / kilo * pricePerKilos52);
 }
 
 
