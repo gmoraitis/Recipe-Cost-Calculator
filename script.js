@@ -158,43 +158,43 @@ function result() {
     sum6 = sum6 || 0
 
     var sum7 = parseFloat(document.getElementById('28').value);
-    console.log(sum6)
+    console.log(sum7)
     sum6 = sum6 || 0
 
     var sum8 = parseFloat(document.getElementById('32').value);
-    console.log(sum6)
+    console.log(sum8)
     sum6 = sum6 || 0
     
     var sum9 = parseFloat(document.getElementById('36').value);
-    console.log(sum6)
+    console.log(sum9)
     sum6 = sum6 || 0
 
     var sum10 = parseFloat(document.getElementById('40').value);
-    console.log(sum6)
+    console.log(sum10)
     sum6 = sum6 || 0
 
     var sum11 = parseFloat(document.getElementById('44').value);
-    console.log(sum6)
+    console.log(sum11)
     sum6 = sum6 || 0
 
     var sum12 = parseFloat(document.getElementById('48').value);
-    console.log(sum6)
+    console.log(sum12)
     sum6 = sum6 || 0
 
     var sum13 = parseFloat(document.getElementById('52').value);
-    console.log(sum6)
+    console.log(sum13)
     sum6 = sum6 || 0
 
     var sum14 = parseFloat(document.getElementById('56').value);
-    console.log(sum6)
+    console.log(sum14)
     sum6 = sum6 || 0
 
     var sum15 = parseFloat(document.getElementById('60').value);
-    console.log(sum6)
+    console.log(sum15)
     sum6 = sum6 || 0
 
     var sum16 = parseFloat(document.getElementById('64').value);
-    console.log(sum6)
+    console.log(sum16)
     sum6 = sum6 || 0
 
     var x = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9 + sum10 + sum11 + sum12 + sum13 + sum14 + sum15 + sum16;
