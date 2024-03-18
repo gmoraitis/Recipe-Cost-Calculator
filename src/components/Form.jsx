@@ -31,7 +31,10 @@ function Form() {
         <div>
           <button type="button" className="btn btn-outline-success" onClick={addTableRow}>Add Row</button>
         </div>
+        <div>
         {rows.length > 0 && <Table rows={rows} removeTableRow={removeTableRow} handleInputChange={handleInputChange} />}
+        </div>
+        
       </form>
     </div>
   );

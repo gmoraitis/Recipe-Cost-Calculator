@@ -45,7 +45,7 @@ function Table({ rows, removeTableRow, handleInputChange }) {
 
   return (
     <div className='container'>
-      <div className='table-responsive-sm'>
+      <div className='table-responsive'>
       <table className="table-dark" id="ingredientTable" style={{ display: rows.length ? 'table' : 'none' }}>
         <thead>
           <tr>
