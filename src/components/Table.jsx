@@ -3,6 +3,8 @@ import React from 'react';
 
 
 function Table({ rows, removeTableRow, handleInputChange }) {
+  //This function calculates the price per portion based 
+  //on the price per kilo and grams per portion.
   const calculatePricePerPortion = (pricePerKilo, gramPerPortion) => {
     const kilo = 1000;
     // Ensure that both pricePerKilo and gramPerPortion are valid numbers before performing the calculation
@@ -13,7 +15,7 @@ function Table({ rows, removeTableRow, handleInputChange }) {
     return pricePerPortion.toFixed(2);
   };
   
-
+  //This function calculates the total cost of all ingredients entered in the table.
   const calculateTotalCost = () => {
     let totalCost = 0;
   
@@ -45,8 +47,8 @@ function Table({ rows, removeTableRow, handleInputChange }) {
 
   return (
     <div className='container'>
-      <div className='table-responsive'>
-      <table className="table-dark" id="ingredientTable" style={{ display: rows.length ? 'table' : 'none' }}>
+    <div className='table-responsive'>
+      <table className='table table-dark'  style={{ display: rows.length ? 'table' : 'none' }}>
         <thead>
           <tr>
             <th>Ingredient</th>
@@ -54,9 +56,13 @@ function Table({ rows, removeTableRow, handleInputChange }) {
             <th>Grams per Portion</th>
             <th>Price per Portion</th>
             <th>Action</th>
-          </tr>
+          </tr> 
         </thead>
-        <tbody id="ingredientBody">
+        <tbody>
+        {/* We map through the rows array passed as a prop and render each row dynamically
+        using input fields for each data attribute 
+        (name, pricePerKilo, gramPerPortion, pricePerPortion). 
+        These fields are bound to the handleInputChange function to update the state when edited. */}
           {rows.map((row, index) => (
             <tr key={index}>
               <td>
@@ -92,6 +98,8 @@ function Table({ rows, removeTableRow, handleInputChange }) {
                 />
               </td>
               <td>
+              {/* We render a "Remove" button in each row, which triggers the 
+              removeTableRow function passed as a prop when clicked. */}
                 <button type="button" className="btn btn-outline-danger" onClick={() => removeTableRow(index)}>
                   Remove
                 </button>
@@ -100,8 +108,12 @@ function Table({ rows, removeTableRow, handleInputChange }) {
           ))}
         </tbody>
       </table>
-      </div>
+      {/* We display the total cost calculated by the calculateTotalCost function below the table. */}
+
+  </div>
+  <div className='mt-3'>
       {rows.length > 0 && <p className='text-white'>Total Cost: ${calculateTotalCost()}</p>}
+    </div>
     </div>
   );
 }

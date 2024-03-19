@@ -4,7 +4,7 @@ import React from 'react';
 function Footer() {
   return (
     <div>
-      <hr class="my-4"></hr>
+      <hr></hr>
       <footer className="mt-auto text-white-50">
         <p>
           By <a href="https://gmoraitis.github.io/" className="text-white" style={{ textDecoration: 'none' }}>George Moraitis</a>

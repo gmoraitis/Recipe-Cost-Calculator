@@ -1,3 +1,14 @@
 /*
  * Globals
  */
+ @media (max-width: 768px) {
+    .table-responsive {
+      overflow-x: auto;
+    }
+    /* Add additional styling for smaller screens */
+  }
+  
+  .cover-container {
+    max-width: 60em;
+  }
+  
