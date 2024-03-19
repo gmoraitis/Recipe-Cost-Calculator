@@ -1,11 +1,10 @@
-# React + Vite
+# Recipe Cost Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### What it does?
+This is a simple calculator for your recipes. Add the prices and the grams and see the cost of each ingredient and the sum for the complete recipe.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### The reason behind..
+My brother is a chef and he wanted a tool to calculate the cost of some of the recipes that he is planning to add on his restaurant menu. 
 
 
 # Connection on the two important components Form and Table
