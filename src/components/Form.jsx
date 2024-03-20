@@ -26,16 +26,20 @@ function Form() {
     setRows(prevRows => prevRows.filter((row, index) => index !== indexToRemove));
   };
 
+  const removeAllRows = () => {
+    setRows([])
+  }
+
   //This function handles input changes in the table rows. 
   //It updates the corresponding field in the rows state based on the input's name and value.
   const handleInputChange = (index, event) => {
-    console.log('the index:',index, 'the event',event)
+    console.log('the index:', index, 'the event', event)
     const { name, value } = event.target;
     console.log('the name: ', name, 'the value: ', value)
     const updatedRows = [...rows];
-    console.log('const updateRows with ... ', updatedRows )
+    console.log('const updateRows with ... ', updatedRows)
     updatedRows[index][name] = value;
-    console.log('updatedRows[index][name] = value;',updatedRows[index][name] )
+    console.log('updatedRows[index][name] = value;', updatedRows[index][name])
     setRows(updatedRows);
   };
 
@@ -43,12 +47,19 @@ function Form() {
   //to add rows and the Table component to display the table.
   return (
     <div className='container'>
-        <div className='mb-3'> 
-          <button type="button" className="btn btn-outline-success" onClick={addTableRow}>Add Row</button>
-        </div>
-        <div className='row'>
-          {rows.length > 0 && <Table rows={rows} removeTableRow={removeTableRow} handleInputChange={handleInputChange} />}
-        </div>
+
+      <div className='mb-3'>
+        <button type="button" className="btn btn-outline-success" onClick={addTableRow}>Add Row</button>
+      </div>
+
+      <div className='row'>
+        {rows.length > 0 && <Table rows={rows} removeTableRow={removeTableRow} handleInputChange={handleInputChange} />}
+      </div>
+
+      <div className='mb-3'>
+        <button type="button" className="btn btn-outline-danger" onClick={removeAllRows} style={{ display: rows.length >= 2 ? '' : 'none' }}>Remove all Rows </button>
+
+      </div>
     </div>
   );
 }
