@@ -11,6 +11,7 @@ function Form() {
   const [title, setTitle] = useState(''); // State for recipe title
   const [instructions, setInstructions] = useState('') // State for the instructions
   const [totalCost, setTotalCost] = useState(0)
+  const [recipe, setRecipe] = useState([]) // State for the recipe [title, ingredients, instructions, totalCost]
   const [showRecipeCard, setShowRecipeCard] = useState(false); // State to show recipe card
 
   // ! Explain this !
@@ -79,15 +80,16 @@ function Form() {
     setInstructions(event.target.value);
   };
 
-  const saveRecipe = () => {
-    // Save recipe with title and ingredient details
-    const recipe = {
+  const saveRecipe = () => {  
+    // Save recipe with title and ingredient details to the recipe state
+    setRecipe({
       title: title,
       ingredients: rows,
-      instructions : instructions,
-      totalCost:totalCost
+      instructions: instructions,
+      totalCost: totalCost
+    });
       // Add instructions and other details as needed
-    };
+
     // After saving the recipe, set showRecipeCard to true to display the card
     setShowRecipeCard(true);
     console.log(recipe); // Example: Log recipe data for testing
@@ -138,10 +140,7 @@ function Form() {
           {/* Conditionally render the recipe card if showRecipeCard is true */}
           {showRecipeCard && (
         <RecipeCard
-          title={title}
-          ingredients={rows}
-          instructions={instructions}
-          totalCost={totalCost}
+          recipe={recipe}
         />
       )}
 
