@@ -2,7 +2,7 @@
 import React from 'react';
 
 
-function Table({ rows, removeTableRow, handleInputChange }) {
+function Table({ rows, removeTableRow, handleInputChange, totalCost }) {
   //This function calculates the price per portion based 
   //on the price per kilo and grams per portion.
   const calculatePricePerPortion = (pricePerKilo, gramPerPortion) => {
@@ -15,35 +15,7 @@ function Table({ rows, removeTableRow, handleInputChange }) {
     return pricePerPortion.toFixed(2);
   };
   
-  //This function calculates the total cost of all ingredients entered in the table.
-  const calculateTotalCost = () => {
-    let totalCost = 0;
-  
-    rows.forEach(row => {
-      const pricePerKilo = parseFloat(row.pricePerKilo);
-      const gramPerPortion = parseFloat(row.gramPerPortion);
-  
-      // Check if either pricePerKilo or gramPerPortion is NaN
-      if (isNaN(pricePerKilo) || isNaN(gramPerPortion)) {
-        return; // Skip this row if either value is NaN
-      }
-  
-      // Check if gramPerPortion is zero
-      if (gramPerPortion === 0) {
-        return; // Skip this row if gramPerPortion is zero
-      }
-  
-      totalCost += (gramPerPortion / 1000) * pricePerKilo;
-    });
-  
-    // Check if totalCost is NaN
-    if (isNaN(totalCost)) {
-      return '0.00'; // Return '0.00' if totalCost is NaN
-    }
-  
-    return totalCost.toFixed(2);
-  };
-  
+ 
 
   return (
     <div className='container'>
@@ -95,6 +67,7 @@ function Table({ rows, removeTableRow, handleInputChange }) {
                   name="pricePerPortion"
                   value={calculatePricePerPortion(parseFloat(row.pricePerKilo), parseFloat(row.gramPerPortion))}
                   readOnly // Make it read-only so users cannot modify it directly
+
                 />
               </td>
               <td>
@@ -112,7 +85,7 @@ function Table({ rows, removeTableRow, handleInputChange }) {
 
   </div>
   <div className='mt-3'>
-      {rows.length > 0 && <p className='text-white'>Total Cost: ${calculateTotalCost()}</p>}
+      {rows.length > 0 && <p className='text-white'>Total Cost: ${totalCost}</p>}
     </div>
     </div>
   );
