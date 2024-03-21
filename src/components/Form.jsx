@@ -107,6 +107,7 @@ function Form() {
           placeholder="Title"
           style={{ width: '50%', margin: 'auto', display: rows.length  ? '' : 'none' }} // Adjusting width and centering
           value={title} 
+          onChange={handleTitleChange}
         />
       </div>
 
