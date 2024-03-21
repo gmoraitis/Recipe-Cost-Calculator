@@ -12,3 +12,10 @@
     max-width: 60em;
   }
   
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    color: rgb(34, 32, 32);
+  }

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 // We import the Table component, which we'll use to display the table in our form. (?its coming in?)
 import Table from './Table';
+import RecipeCard from './RecipeCard';
 
 function Form() {
   // We use the useState hook to create a state variable rows, 
@@ -10,6 +11,7 @@ function Form() {
   const [title, setTitle] = useState(''); // State for recipe title
   const [instructions, setInstructions] = useState('') // State for the instructions
   const [totalCost, setTotalCost] = useState(0)
+  const [showRecipeCard, setShowRecipeCard] = useState(false); // State to show recipe card
 
   // ! Explain this !
   useEffect(() => {
@@ -86,6 +88,8 @@ function Form() {
       totalCost:totalCost
       // Add instructions and other details as needed
     };
+    // After saving the recipe, set showRecipeCard to true to display the card
+    setShowRecipeCard(true);
     console.log(recipe); // Example: Log recipe data for testing
   };
 
@@ -96,11 +100,11 @@ function Form() {
     <div className='container'>
 
 
-      <div className='mb-3'>
+      <div className='mb-4'>
         <button type="button" className="btn btn-outline-success" onClick={addTableRow}>Add Recipe</button>
       </div>
 
-      <div className='mb-3'>
+      <div className='mb-4'>
         <input
           type="text"
           className="form-control"
@@ -115,7 +119,7 @@ function Form() {
         {rows.length > 0 && <Table rows={rows} removeTableRow={removeTableRow} handleInputChange={handleInputChange} totalCost={totalCost} />}
       </div>
 
-      <div className="mb-3 text-center"> {/* Centering text area */}
+      <div className="mb-4 text-center"> {/* Centering text area */}
         <textarea
           className="form-control"
           placeholder="Instructions"
@@ -124,13 +128,23 @@ function Form() {
           onChange={handleInstructionsChange}
         />
       </div>
-      <div className='mb-3'>
+      <div className='mb-4'>
         <button type="button" className="btn btn-outline-primary" onClick={saveRecipe} style={{ display: rows.length >= 1 ? '' : 'none' }}>Save Recipe</button>
       </div>
-      <div className='mb-3'>
+      <div className='mb-4'>
         <button type="button" className="btn btn-outline-danger" onClick={removeAllRows} style={{ display: rows.length >= 2 ? '' : 'none' }}>Remove all Rows </button>
-
       </div>
+
+          {/* Conditionally render the recipe card if showRecipeCard is true */}
+          {showRecipeCard && (
+        <RecipeCard
+          title={title}
+          ingredients={rows}
+          instructions={instructions}
+          totalCost={totalCost}
+        />
+      )}
+
     </div>
   );
 }
