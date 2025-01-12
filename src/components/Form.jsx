@@ -1,65 +1,202 @@
-// components/Form.js
 import React, { useState } from 'react';
-//We import the Table component, which we'll use to display the table in our form. (?its coming in?)
-import Table from './Table';
 
 function Form() {
-  //We use the useState hook to create a state variable rows, 
-  //which will hold the data for each row in our table. Initially, it's set to an empty array.
-  const [rows, setRows] = useState([]);
+  const [recipes, setRecipes] = useState([
+    {
+      id: Date.now(),
+      title: 'Recipe Title',
+      rows: [
+        { id: Date.now(), ingredient: '', pricePerKilo: '', gramsPerPortion: '', pricePerPortion: 0 },
+      ],
+      total: 0,
+    },
+  ]);
 
-  //This function is responsible for adding a new row to the table 
-  //when the "Add Row" button is clicked. It updates the rows state by 
-  //adding a new object with empty values for each field.
-  const addTableRow = () => {
-    setRows(prevRows => [...prevRows, {
-      name: '',
-      pricePerKilo: '',
-      gramPerPortion: '',
-      pricePerPortion: ''
-    }]);
+  // Add a new recipe
+  const addRecipe = () => {
+    setRecipes([
+      ...recipes,
+      {
+        id: Date.now(),
+        title: 'New Recipe',
+        rows: [
+          { id: Date.now(), ingredient: '', pricePerKilo: '', gramsPerPortion: '', pricePerPortion: 0 },
+        ],
+        total: 0,
+      },
+    ]);
   };
 
-  //This function removes a row from the table when the "Remove" button is clicked. 
-  //It filters out the row to be removed based on its index in the rows array.
-  const removeTableRow = (indexToRemove) => {
-    setRows(prevRows => prevRows.filter((row, index) => index !== indexToRemove));
+  // Remove a recipe
+  const removeRecipe = (recipeId) => {
+    setRecipes(recipes.filter((recipe) => recipe.id !== recipeId));
   };
 
-  const removeAllRows = () => {
-    setRows([])
-  }
-
-  //This function handles input changes in the table rows. 
-  //It updates the corresponding field in the rows state based on the input's name and value.
-  const handleInputChange = (index, event) => {
-    console.log('the index:', index, 'the event', event)
-    const { name, value } = event.target;
-    console.log('the name: ', name, 'the value: ', value)
-    const updatedRows = [...rows];
-    console.log('const updateRows with ... ', updatedRows)
-    updatedRows[index][name] = value;
-    console.log('updatedRows[index][name] = value;', updatedRows[index][name])
-    setRows(updatedRows);
+  // Add a new row to a recipe
+  const addRow = (recipeId) => {
+    setRecipes(
+      recipes.map((recipe) =>
+        recipe.id === recipeId
+          ? {
+              ...recipe,
+              rows: [
+                ...recipe.rows,
+                { id: Date.now(), ingredient: '', pricePerKilo: '', gramsPerPortion: '', pricePerPortion: 0 },
+              ],
+            }
+          : recipe
+      )
+    );
   };
 
-  //We render a form element containing a button 
-  //to add rows and the Table component to display the table.
+  // Remove a row from a recipe
+  const removeRow = (recipeId, rowId) => {
+    setRecipes(
+      recipes.map((recipe) =>
+        recipe.id === recipeId
+          ? {
+              ...recipe,
+              rows: recipe.rows.filter((row) => row.id !== rowId),
+              total: calculateTotal(recipe.rows.filter((row) => row.id !== rowId)),
+            }
+          :  recipe 
+      )
+    );
+  };
+
+  // Handle input changes
+  const handleInputChange = (recipeId, rowId, field, value) => {
+    setRecipes(
+      recipes.map((recipe) =>
+        recipe.id === recipeId
+          ? {
+              ...recipe,
+              rows: recipe.rows.map((row) =>
+                row.id === rowId
+                  ? { ...row, [field]: value, pricePerPortion: calculatePricePerPortion(row, field, value) }
+                  : row
+              ),
+              total: calculateTotal(
+                recipe.rows.map((row) =>
+                  row.id === rowId
+                    ? { ...row, [field]: value, pricePerPortion: calculatePricePerPortion(row, field, value) }
+                    : row
+                )
+              ),
+            }
+          : recipe
+      )
+    );
+  };
+
+  // Calculate price per portion for a row
+  const calculatePricePerPortion = (row, field, value) => {
+    const updatedRow = { ...row, [field]: value };
+    const pricePerKilo = parseFloat(updatedRow.pricePerKilo || 0);
+    const gramsPerPortion = parseFloat(updatedRow.gramsPerPortion || 0);
+    return ((pricePerKilo * gramsPerPortion) / 1000).toFixed(2);
+  };
+
+  // Calculate total for a recipe
+  const calculateTotal = (rows) => {
+    return rows.reduce((acc, row) => acc + parseFloat(row.pricePerPortion || 0), 0).toFixed(2);
+  };
+
   return (
-    <div className='container'>
+    <div>
 
-      <div className='mb-3'>
-        <button type="button" className="btn btn-outline-success" onClick={addTableRow}>Add Row</button>
-      </div>
+      {/* Add Recipe Button */}
+      <button onClick={addRecipe} className="btn btn-success mb-3">
+        Add Recipe
+      </button>
 
-      <div className='row'>
-        {rows.length > 0 && <Table rows={rows} removeTableRow={removeTableRow} handleInputChange={handleInputChange} />}
-      </div>
+      {/* Recipe List */}
+      {recipes.map((recipe) => (
+        <div key={recipe.id} className="mb-3">
+          <input
+            type="text"
+            className="form-control mb-3"
+            value={recipe.title}
+            onChange={(e) =>
+              setRecipes(
+                recipes.map((r) => (r.id === recipe.id ? { ...r, title: e.target.value } : r))
+              )
+            }
+            placeholder="Recipe Title"
+          />
 
-      <div className='mb-3'>
-        <button type="button" className="btn btn-outline-danger" onClick={removeAllRows} style={{ display: rows.length >= 2 ? '' : 'none' }}>Remove all Rows </button>
+          {/* Table */}
+          <div className="table-responsive">
+            <table className="table table-dark table-bordered">
+              <thead>
+                <tr>
+                  <th>Ingredient</th>
+                  <th>Price Per Kilo</th>
+                  <th>Grams Per Portion</th>
+                  <th>Price Per Portion</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recipe.rows.map((row) => (
+                  <tr key={row.id}>
+                    <td>
+                      <input
+                        type="text"
+                        placeholder="Ingredient"
+                        value={row.ingredient}
+                        onChange={(e) => handleInputChange(recipe.id, row.id, 'ingredient', e.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        placeholder="0.00"
+                        value={row.pricePerKilo}
+                        onChange={(e) => handleInputChange(recipe.id, row.id, 'pricePerKilo', e.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        placeholder="0"
+                        value={row.gramsPerPortion}
+                        onChange={(e) => handleInputChange(recipe.id, row.id, 'gramsPerPortion', e.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input type="text" readOnly value={row.pricePerPortion} />
+                    </td>
+                    <td>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => removeRow(recipe.id, row.id)}
+                      >
+                        Remove
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-      </div>
+          {/* Add Row and Remove Recipe */}
+          <div className="d-flex justify-content-between mt-3">
+            <button className="btn btn-info" onClick={() => addRow(recipe.id)}>
+              Add Row
+            </button>
+            <button className="btn btn-danger" onClick={() => removeRecipe(recipe.id)}>
+              Remove Recipe
+            </button>
+          </div>
+
+          {/* Total */}
+          <div className="mt-3 text-right">
+            <strong>Total: ${recipe.total}</strong>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

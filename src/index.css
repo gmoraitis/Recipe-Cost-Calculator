@@ -1,14 +1,136 @@
-/*
- * Globals
- */
- @media (max-width: 768px) {
-    .table-responsive {
-      overflow-x: auto;
-    }
-    /* Add additional styling for smaller screens */
+/* General Container Styling */
+.container-fluid {
+  background-color: #343a40;
+  color: #2b2828;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: auto; /* Allow both vertical and horizontal scrolling */
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  margin-top: 15px;
+  border: none;
+  table-layout: auto; /* Allow table to expand horizontally */
+}
+
+.table th, .table td {
+  vertical-align: middle;
+  border: none;
+  padding: 10px;
+}
+
+.table th {
+  color: #adb5bd;
+}
+
+.table input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #6c757d;
+  background-color: #495057;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+button.add-recipe {
+  background-color: #28a745;
+  color: #ffffff;
+}
+
+button.add-recipe:hover {
+  background-color: #218838;
+}
+
+button.remove {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+button.remove:hover {
+  background-color: #bd2130;
+}
+
+button.add-row {
+  background-color: #17a2b8;
+  color: #ffffff;
+}
+
+button.add-row:hover {
+  background-color: #138496;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #adb5bd;
+  text-align: center;
+}
+
+/* Mobile Styling for smaller screens */
+@media (max-width: 768px) {
+  .container-fluid {
+    overflow: auto; /* Allow both vertical and horizontal scrolling */
+    width: 100vw; /* Full viewport width */
   }
-  
-  .cover-container {
-    max-width: 60em;
+
+  /* Ensure the table stretches to the screen width */
+  .table {
+    width: 100%;
+    display: block; /* Allow the table to scroll horizontally */
+    overflow-x: auto;
   }
-  
+
+  button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 15px;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-fluid {
+    overflow: auto; /* Horizontal and vertical scroll */
+  }
+
+  .table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .table th, .table td {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+
+  footer {
+    font-size: 0.7rem;
+    margin-top: 10px;
+  }
+}
