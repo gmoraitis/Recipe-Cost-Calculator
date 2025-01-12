@@ -106,7 +106,7 @@ function Form() {
     <div>
 
       {/* Add Recipe Button */}
-      <button onClick={addRecipe} className="btn btn-success mb-3">
+      <button onClick={addRecipe} className="btn btn-outline-success  mb-3">
         Add Recipe
       </button>
 
@@ -169,7 +169,7 @@ function Form() {
                     </td>
                     <td>
                       <button
-                        className="btn btn-danger"
+                        className="btn btn-outline-danger btn-sm"
                         onClick={() => removeRow(recipe.id, row.id)}
                       >
                         Remove
@@ -183,10 +183,10 @@ function Form() {
 
           {/* Add Row and Remove Recipe */}
           <div className="d-flex justify-content-between mt-3">
-            <button className="btn btn-info" onClick={() => addRow(recipe.id)}>
+            <button className="btn btn-outline-info" onClick={() => addRow(recipe.id)}>
               Add Row
             </button>
-            <button className="btn btn-danger" onClick={() => removeRecipe(recipe.id)}>
+            <button className="btn btn-outline-danger" onClick={() => removeRecipe(recipe.id)}>
               Remove Recipe
             </button>
           </div>
