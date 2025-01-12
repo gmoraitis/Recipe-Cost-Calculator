@@ -1,16 +1,36 @@
 import React, { useState } from 'react';
 
 function Form() {
-  const [recipes, setRecipes] = useState([
-    {
-      id: Date.now(),
-      title: 'Recipe Title',
-      rows: [
-        { id: Date.now(), ingredient: '', pricePerKilo: '', gramsPerPortion: '', pricePerPortion: 0 },
-      ],
-      total: 0,
-    },
-  ]);
+  const [recipes, setRecipes] = useState([]);
+
+  // Function to convert recipes to text format
+  const convertRecipesToText = () => {
+    let text = 'Recipes List:\n\n';
+
+    recipes.forEach((recipe, index) => {
+      text += `Recipe ${index + 1}: ${recipe.title}\n`;
+      recipe.rows.forEach((row, rowIndex) => {
+        text += `    Ingredient: ${row.ingredient}\n`;
+        text += `    Price Per Kilo: ${row.pricePerKilo}\n`;
+        text += `    Grams Per Portion: ${row.gramsPerPortion}\n`;
+        text += `    Price Per Portion: ${row.pricePerPortion}\n`;
+        text += '\n';
+      });
+      text += `Total: $${recipe.total}\n\n`;
+    });
+
+    return text;
+  };
+
+  // Function to trigger download of recipes as text
+  const downloadRecipes = () => {
+    const text = convertRecipesToText();
+    const blob = new Blob([text], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'recipes.txt';
+    link.click();
+  };
 
   // Add a new recipe
   const addRecipe = () => {
@@ -18,7 +38,7 @@ function Form() {
       ...recipes,
       {
         id: Date.now(),
-        title: 'New Recipe',
+        title: '',
         rows: [
           { id: Date.now(), ingredient: '', pricePerKilo: '', gramsPerPortion: '', pricePerPortion: 0 },
         ],
@@ -59,7 +79,7 @@ function Form() {
               rows: recipe.rows.filter((row) => row.id !== rowId),
               total: calculateTotal(recipe.rows.filter((row) => row.id !== rowId)),
             }
-          :  recipe 
+          : recipe
       )
     );
   };
@@ -104,9 +124,8 @@ function Form() {
 
   return (
     <div>
-
       {/* Add Recipe Button */}
-      <button onClick={addRecipe} className="btn btn-outline-success  mb-3">
+      <button onClick={addRecipe} className="btn btn-outline-success mb-3">
         Add Recipe
       </button>
 
@@ -172,7 +191,7 @@ function Form() {
                         className="btn btn-outline-danger btn-sm"
                         onClick={() => removeRow(recipe.id, row.id)}
                       >
-                        Remove
+                        Remove Row
                       </button>
                     </td>
                   </tr>
@@ -197,6 +216,13 @@ function Form() {
           </div>
         </div>
       ))}
+
+      {/* Download Recipes Button - Shown only if there is at least one recipe */}
+      {recipes.length > 0 && (
+        <button onClick={downloadRecipes} className="btn btn-outline-primary mt-3">
+          Download Recipes
+        </button>
+      )}
     </div>
   );
 }
